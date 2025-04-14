@@ -152,7 +152,7 @@ const Promotion: React.FC = () => {
         textAlign: 'center'
       }}>
         <h1 style={{ color: 'white', marginBottom: '24px' }}>
-          企业大脑：激活数据智能，驱动制造新未来
+          企业大脑 激活数据智能，驱动制造新未来
         </h1>
         <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '18px', maxWidth: '800px', margin: '0 auto 40px' }}>
           整合企业内外部数据与知识，利用大数据、AI等技术，提供洞察、预测、决策支持和自动化能力的智能化平台
