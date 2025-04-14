@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业大脑 - 激活数据智能，驱动制造新未来</title>
+    <meta name="description" content="天云聚合企业大脑平台，整合企业内外部数据与知识，利用大数据、AI等技术，提供洞察、预测、决策支持和自动化能力的智能化平台">
+    <meta name="keywords" content="企业大脑,智能制造,数据融合,AI,商业智能,智能体,Agent,制造业数字化">
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1890ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #0c7cd5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #1890ff;
+            color: #1890ff;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1890ff;
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+        
+        .mb-40 {
+            margin-bottom: 40px;
+        }
+        
+        .mt-40 {
+            margin-top: 40px;
+        }
+        
+        /* 导航栏 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1890ff;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #1890ff;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(135deg, #1c2280 0%, #050a30 100%);
+            color: white;
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-feature svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            fill: #1890ff;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+        }
+        
+        /* 痛点共鸣 */
+        .pain-points {
+            background-color: #f8f9fa;
+        }
+        
+        .pain-points-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .pain-point-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pain-point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pain-point-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            fill: #1890ff;
+        }
+        
+        /* 解决方案 */
+        .solution {
+            background-color: white;
+        }
+        
+        .solution-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .solution-text {
+            flex: 1;
+        }
+        
+        .solution-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .solution-image svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* 核心能力 */
+        .capabilities {
+            background-color: #f8f9fa;
+        }
+        
+        .capabilities-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+        
+        .capability-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .capability-tab.active {
+            border-bottom-color: #1890ff;
+            color: #1890ff;
+        }
+        
+        .capability-content {
+            display: none;
+        }
+        
+        .capability-content.active {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .capability-text {
+            flex: 1;
+        }
+        
+        .capability-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .capability-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 实施路径 */
+        .how-it-works {
+            background-color: white;
+        }
+        
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+        
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 30%;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #1890ff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 15px;
+            fill: #1890ff;
+        }
+        
+        /* 应用场景 */
+        .use-cases {
+            background-color: #f8f9fa;
+        }
+        
+        .use-cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .use-case-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .use-case-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .use-case-content {
+            padding: 25px;
+        }
+        
+        /* 客户价值 */
+        .benefits {
+            background-color: white;
+        }
+        
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .benefit-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1890ff;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            fill: #1890ff;
+        }
+        
+        /* 客户案例 */
+        .trust {
+            background-color: #f8f9fa;
+        }
+        
+        .logos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .logo-item {
+            height: 60px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* 行动召唤 */
+        .cta {
+            background: linear-gradient(135deg, #1c2280 0%, #050a30 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #1890ff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .solution-content, .capability-content.active {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .steps-container::before {
+                display: none;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">天云聚合</a>
+            <ul class="nav-links">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">产品</a></li>
+                <li><a href="#">解决方案</a></li>
+                <li><a href="#">客户案例</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="/register" class="btn btn-secondary">注册</a></li>
+                <li><a href="/register?type=login" class="btn">登录</a></li>
+                <li><a href="#" class="btn">联系我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>企业大脑：激活数据智能，驱动制造新未来</h1>
+                <p>整合企业内外部数据与知识，利用大数据、AI等技术，提供洞察、预测、决策支持和自动化能力的智能化平台</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 7L9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7z"/>
+                        </svg>
+                        <span>数据融合</span>
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 7L9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7z"/>
+                        </svg>
+                        <span>智能分析</span>
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 7L9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7z"/>
+                        </svg>
+                        <span>预测预警</span>
+                    </div>
+                    <div class="hero-feature">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 7L9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7z"/>
+                        </svg>
+                        <span>自动化决策</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#" class="btn">申请免费AI诊断</a>
+                    <a href="#" class="btn btn-secondary">预约产品演示</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 痛点共鸣 -->
+    <section class="pain-points" id="pain-points">
+        <div class="container">
+            <h2>您的工厂是否也面临这些挑战？</h2>
+            
+            <div class="pain-points-container">
+                <div class="pain-point-card">
+                    <svg class="pain-point-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <h3>信息孤岛</h3>
+                    <p>ERP、MES、SCADA等系统各自为政，数据分散在不同系统中，无法形成统一视图，导致决策依据不全面。</p>
+                </div>
+                
+                <div class="pain-point-card">
+                    <svg class="pain-point-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
+                    </svg>
+                    <h3>效率瓶颈</h3>
+                    <p>生产数据分析耗时长，报表制作繁琐，无法及时发现生产过程中的异常和瓶颈，影响整体生产效率。</p>
+                </div>
+                
+                <div class="pain-point-card">
+                    <svg class="pain-point-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    <h3>知识流失</h3>
+                    <p>企业核心知识和经验存在于少数专家头脑中，缺乏有效沉淀和传承机制，人员流动导致知识资产流失。</p>
+                </div>
+                
+                <div class="pain-point-card">
+                    <svg class="pain-point-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <h3>被动响应</h3>
+                    <p>缺乏预测性分析能力，只能在问题发生后被动应对，无法提前预警设备故障、质量异常或供应链风险。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案 -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2>企业大脑：构建您的智能运营中枢</h2>
+            
+            <div class="solution-content">
+                <div class="solution-text">
+                    <p>企业大脑是一个整合企业内外部数据与知识，利用大数据、AI等技术，提供洞察、预测、决策支持和自动化能力的智能化平台。它通过打通数据孤岛，构建知识图谱，应用AI算法，实现从数据到智能的转化，赋能企业各业务环节的智能化升级。</p>
+                    <p>无论是生产监控、质量管理、设备维护还是供应链协同，企业大脑都能为您提供全方位的智能支持，帮助您实现降本增效、提质增速的目标。</p>
+                </div>
+                
+                <div class="solution-image">
+                    <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="120" width="300" height="60" rx="10" fill="#1890ff" opacity="0.8"/>
+                        <text x="200" y="155" text-anchor="middle" fill="white" font-size="18">企业大脑核心引擎</text>
+                        
+                        <g opacity="0.9">
+                            <!-- 数据源 -->
+                            <rect x="20" y="30" width="70" height="40" rx="5" fill="#87CEFA"/>
+                            <text x="55" y="55" text-anchor="middle" fill="white" font-size="12">ERP</text>
+                            
+                            <rect x="110" y="30" width="70" height="40" rx="5" fill="#87CEFA"/>
+                            <text x="145" y="55" text-anchor="middle" fill="white" font-size="12">MES</text>
+                            
+                            <rect x="200" y="30" width="70" height="40" rx="5" fill="#87CEFA"/>
+                            <text x="235" y="55" text-anchor="middle" fill="white" font-size="12">SCADA</text>
+                            
+                            <rect x="290" y="30" width="70" height="40" rx="5" fill="#87CEFA"/>
+                            <text x="325" y="55" text-anchor="middle" fill="white" font-size="12">IoT</text>
+                            
+                            <!-- 连接线 -->
+                            <line x1="55" y1="70" x2="55" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="145" y1="70" x2="145" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="235" y1="70" x2="235" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="325" y1="70" x2="325" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            
+                            <!-- 应用输出 -->
+                            <rect x="20" y="230" width="70" height="40" rx="5" fill="#FF9800"/>
+                            <text x="55" y="255" text-anchor="middle" fill="white" font-size="12">监控大屏</text>
+                            
+                            <rect x="110" y="230" width="70" height="40" rx="5" fill="#FF9800"/>
+                            <text x="145" y="255" text-anchor="middle" fill="white" font-size="12">预测预警</text>
+                            
+                            <rect x="200" y="230" width="70" height="40" rx="5" fill="#FF9800"/>
+                            <text x="235" y="255" text-anchor="middle" fill="white" font-size="12">智能报表</text>
+                            
+                            <rect x="290" y="230" width="70" height="40" rx="5" fill="#FF9800"/>
+                            <text x="325" y="255" text-anchor="middle" fill="white" font-size="12">智能助手</text>
+                            
+                            <!-- 连接线 -->
+                            <line x1="55" y1="180" x2="55" y2="230" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="145" y1="180" x2="145" y2="230" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="235" y1="180" x2="235" y2="230" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="325" y1="180" x2="325" y2="230" stroke="#1890ff" stroke-width="2"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心能力 -->
+    <section class="capabilities" id="capabilities">
+        <div class="container">
+            <h2>企业大脑的核心引擎</h2>
+            
+            <div class="capabilities-tabs">
+                <div class="capability-tab active" data-tab="data-fusion">全域数据融合</div>
+                <div class="capability-tab" data-tab="knowledge-building">企业知识构建</div>
+                <div class="capability-tab" data-tab="bi-analysis">自助分析与可视化</div>
+                <div class="capability-tab" data-tab="agent-factory">智能Agent工厂</div>
+                <div class="capability-tab" data-tab="industry-assistant">垂直行业智能助手</div>
+            </div>
+            
+            <div class="capability-content active" id="data-fusion">
+                <div class="capability-text">
+                    <h3>全域数据融合</h3>
+                    <p>企业大脑能够连接并整合企业内部各业务系统（ERP、MES、SCADA等）和外部数据源（IoT设备、供应商数据等），打破数据孤岛，构建统一的数据视图。</p>
+                    <p>通过灵活的数据接入方式和强大的数据处理能力，企业大脑可以处理结构化、半结构化和非结构化数据，为后续的智能分析和应用提供坚实基础。</p>
+                    <ul>
+                        <li>支持多种数据源接入（关系型数据库、文件、API等）</li>
+                        <li>自动化数据清洗与转换</li>
+                        <li>实时与批量数据处理</li>
+                        <li>数据质量监控与管理</li>
+                    </ul>
+                </div>
+                <div class="capability-image">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmMWY1ZjkiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjMTg5MGZmIiBvcGFjaXR5PSIwLjgiLz48dGV4dCB4PSIyMDAiIHk9IjE1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTYiPuaVsOaNruWQiOS9nDwvdGV4dD48Y2lyY2xlIGN4PSI4MCIgY3k9IjgwIiByPSIzMCIgZmlsbD0iIzg3Q0VGQSIvPjx0ZXh0IHg9IjgwIiB5PSI4NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTIiPkVSUDwvdGV4dD48Y2lyY2xlIGN4PSI4MCIgY3k9IjIyMCIgcj0iMzAiIGZpbGw9IiM4N0NFRkEiLz48dGV4dCB4PSI4MCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMiI+TUVTPC90ZXh0PjxjaXJjbGUgY3g9IjMyMCIgY3k9IjgwIiByPSIzMCIgZmlsbD0iIzg3Q0VGQSIvPjx0ZXh0IHg9IjMyMCIgeT0iODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj5TQ0FEQTwvdGV4dD48Y2lyY2xlIGN4PSIzMjAiIGN5PSIyMjAiIHI9IjMwIiBmaWxsPSIjODdDRUZBIi8+PHRleHQgeD0iMzIwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj5Jb1Q8L3RleHQ+PGxpbmUgeDE9IjEwNSIgeTE9IjEwNSIgeDI9IjE0MCIgeTI9IjEzMCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTA1IiB5MT0iMTk1IiB4Mj0iMTQwIiB5Mj0iMTcwIiBzdHJva2U9IiMxODkwZmYiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIyOTUiIHkxPSIxMDUiIHgyPSIyNjAiIHkyPSIxMzAiIHN0cm9rZT0iIzE4OTBmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjI5NSIgeTE9IjE5NSIgeDI9IjI2MCIgeTI9IjE3MCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=" alt="全域数据融合">
+                </div>
+            </div>
+            
+            <div class="capability-content" id="knowledge-building">
+                <div class="capability-text">
+                    <h3>企业知识构建</h3>
+                    <p>企业大脑能够将企业内部的非结构化知识（如文档、手册、报告、邮件等）进行智能解析、结构化和关联，构建企业专属知识库。</p>
+                    <p>通过知识图谱技术，企业大脑可以建立知识之间的关联关系，支持智能检索、问答和推理，让企业知识资产得到有效沉淀和应用。</p>
+                    <ul>
+                        <li>多格式文档智能解析</li>
+                        <li>知识抽取与结构化</li>
+                        <li>知识图谱构建</li>
+                        <li>智能检索与问答</li>
+                    </ul>
+                </div>
+                <div class="capability-image">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmMWY1ZjkiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjYwIiBmaWxsPSIjMTg5MGZmIiBvcGFjaXR5PSIwLjgiLz48dGV4dCB4PSIyMDAiIHk9IjE1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMTYiPuefpeivhuWbvuiwgzwvdGV4dD48Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MCIgcj0iMzAiIGZpbGw9IiNGRjk4MDAiIG9wYWNpdHk9IjAuOCIvPjx0ZXh0IHg9IjEwMCIgeT0iODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7miJHnmoTmlofmoaMxPC90ZXh0PjxjaXJjbGUgY3g9IjEwMCIgY3k9IjIyMCIgcj0iMzAiIGZpbGw9IiNGRjk4MDAiIG9wYWNpdHk9IjAuOCIvPjx0ZXh0IHg9IjEwMCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMiI+5oiR55qE5paH5qGjMjwvdGV4dD48Y2lyY2xlIGN4PSIzMDAiIGN5PSI4MCIgcj0iMzAiIGZpbGw9IiNGRjk4MDAiIG9wYWNpdHk9IjAuOCIvPjx0ZXh0IHg9IjMwMCIgeT0iODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7miJHnmoTmlofmoaMzPC90ZXh0PjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIyMCIgcj0iMzAiIGZpbGw9IiNGRjk4MDAiIG9wYWNpdHk9IjAuOCIvPjx0ZXh0IHg9IjMwMCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMiI+5oiR55qE5paH5qGjNDwvdGV4dD48bGluZSB4MT0iMTI1IiB5MT0iOTUiIHgyPSIxNjAiIHkyPSIxMjAiIHN0cm9rZT0iIzE4OTBmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjEyNSIgeTE9IjIwNSIgeDI9IjE2MCIgeTI9IjE4MCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjc1IiB5MT0iOTUiIHgyPSIyNDAiIHkyPSIxMjAiIHN0cm9rZT0iIzE4OTBmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjI3NSIgeTE9IjIwNSIgeDI9IjI0MCIgeTI9IjE4MCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTAwIiB5MT0iMTEwIiB4Mj0iMTAwIiB5Mj0iMTkwIiBzdHJva2U9IiMxODkwZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGxpbmUgeDE9IjMwMCIgeTE9IjExMCIgeDI9IjMwMCIgeTI9IjE5MCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxsaW5lIHgxPSIxMzAiIHkxPSI4MCIgeDI9IjI3MCIgeTI9IjgwIiBzdHJva2U9IiMxODkwZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGxpbmUgeDE9IjEzMCIgeTE9IjIyMCIgeDI9IjI3MCIgeTI9IjIyMCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjwvc3ZnPg==" alt="企业知识构建">
+                </div>
+            </div>
+            
+            <div class="capability-content" id="bi-analysis">
+                <div class="capability-text">
+                    <h3>自助分析与可视化</h3>
+                    <p>企业大脑提供直观易用的自助式数据分析工具，让业务人员无需编程即可进行复杂数据分析，快速生成洞察。</p>
+                    <p>通过拖拽式操作界面和丰富的可视化组件，用户可以轻松创建各类报表、仪表盘和大屏，实现数据的直观呈现和实时监控。</p>
+                    <ul>
+                        <li>拖拽式自助分析</li>
+                        <li>多维度数据探索</li>
+                        <li>丰富的可视化组件</li>
+                        <li>自定义大屏设计</li>
+                        <li>报表自动生成与分发</li>
+                    </ul>
+                </div>
+                <div class="capability-image">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmMWY1ZjkiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiByeD0iMTAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNkZGQiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjcwIiB5PSI4MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI4MCIgcng9IjUiIGZpbGw9IiNmMWY1ZjkiIHN0cm9rZT0iI2RkZCIvPjxyZWN0IHg9IjIxMCIgeT0iODAiIHdpZHRoPSIxMjAiIGhlaWdodD0iODAiIHJ4PSI1IiBmaWxsPSIjZjFmNWY5IiBzdHJva2U9IiNkZGQiLz48cmVjdCB4PSI3MCIgeT0iMTgwIiB3aWR0aD0iMjYwIiBoZWlnaHQ9IjUwIiByeD0iNSIgZmlsbD0iI2YxZjVmOSIgc3Ryb2tlPSIjZGRkIi8+PHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjMTg5MGZmIiByeD0iMTAgcnkgMCIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjMiIGZpbGw9IndoaXRlIi8+PGNpcmNsZSBjeD0iNzAiIGN5PSI2MCIgcj0iMyIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjYwIiByPSIzIiBmaWxsPSJ3aGl0ZSIvPjx0ZXh0IHg9IjE3NSIgeT0iNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7mlbDmja7liIbmnpDlsZXnpLo8L3RleHQ+PHBhdGggZD0iTTgwIDEyMCBMOTAgMTEwIEwxMDAgMTMwIEwxMTAgMTAwIEwxMjAgMTIwIEwxMzAgOTAgTDE0MCAxMTAgTDE1MCAxMjAiIHN0cm9rZT0iIzFiOTBmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMjcwIiBjeT0iMTIwIiByPSIzMCIgZmlsbD0iI2ZmOTgwMCIgb3BhY2l0eT0iMC43Ii8+PHBhdGggZD0iTTI3MCAxMjAgTDI3MCA5MCBBMzAgMzAgMCAwIDEgMjk2IDEzNSBaIiBmaWxsPSIjMWI5MGZmIi8+PHRleHQgeD0iMjcwIiBjeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMCI+MzAlPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIxOTAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzFiOTBmZiIvPjxyZWN0IHg9IjExMCIgeT0iMTgwIiB3aWR0aD0iMjAiIGhlaWdodD0iNDAiIGZpbGw9IiMxYjkwZmYiLz48cmVjdCB4PSIxNDAiIHk9IjE3MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjMWI5MGZmIi8+PHJlY3QgeD0iMTcwIiB5PSIyMDAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzFiOTBmZiIvPjxyZWN0IHg9IjIwMCIgeT0iMTkwIiB3aWR0aD0iMjAiIGhlaWdodD0iMzAiIGZpbGw9IiMxYjkwZmYiLz48cmVjdCB4PSIyMzAiIHk9IjE2MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMWI5MGZmIi8+PHJlY3QgeD0iMjYwIiB5PSIxODAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzFiOTBmZiIvPjxyZWN0IHg9IjI5MCIgeT0iMTcwIiB3aWR0aD0iMjAiIGhlaWdodD0iNTAiIGZpbGw9IiMxYjkwZmYiLz48L3N2Zz4=" alt="自助分析与可视化">
+                </div>
+            </div>
+            
+            <div class="capability-content" id="agent-factory">
+                <div class="capability-text">
+                    <h3>智能Agent工厂</h3>
+                    <p>企业大脑提供低代码/无代码的智能Agent构建平台，让业务人员可以轻松创建各类智能应用，如自动化流程、预警预测、智能报表等。</p>
+                    <p>这些Agent能够自主感知数据变化，执行预设规则或模型，完成特定任务，大幅提升业务自动化水平和响应速度。</p>
+                    <ul>
+                        <li>可视化Agent设计</li>
+                        <li>丰富的预置模板</li>
+                        <li>自定义触发条件</li>
+                        <li>多种执行动作</li>
+                        <li>自动化任务调度</li>
+                    </ul>
+                </div>
+                <div class="capability-image">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmMWY1ZjkiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiByeD0iMTAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNkZGQiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjcwIiB5PSI4MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iIzFiOTBmZiIgb3BhY2l0eT0iMC44Ii8+PHRleHQgeD0iMTEwIiB5PSIxMDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7mlbDmja7op6PmnpA8L3RleHQ+PHJlY3QgeD0iMjUwIiB5PSI4MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iI2ZmOTgwMCIgb3BhY2l0eT0iMC44Ii8+PHRleHQgeD0iMjkwIiB5PSIxMDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7op6PmnpDlj5HpgIE8L3RleHQ+PHJlY3QgeD0iNzAiIHk9IjE4MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iI2ZmOTgwMCIgb3BhY2l0eT0iMC44Ii8+PHRleHQgeD0iMTEwIiB5PSIyMDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjEyIj7oh6rliqjljJbku7vliqE8L3RleHQ+PHJlY3QgeD0iMjUwIiB5PSIxODAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9IiMxYjkwZmYiIG9wYWNpdHk9IjAuOCIvPjx0ZXh0IHg9IjI5MCIgeT0iMjA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMiI+5pWw5o2u5pS26JeP5o6l5Y+jPC90ZXh0PjxsaW5lIHgxPSIxNTAiIHkxPSIxMDAiIHgyPSIyNTAiIHkyPSIxMDAiIHN0cm9rZT0iIzE4OTBmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1LDUiLz48bGluZSB4MT0iMTUwIiB5MT0iMjAwIiB4Mj0iMjUwIiB5Mj0iMjAwIiBzdHJva2U9IiMxODkwZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+PGxpbmUgeDE9IjExMCIgeTE9IjEyMCIgeDI9IjExMCIgeTI9IjE4MCIgc3Ryb2tlPSIjMTg5MGZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNSIvPjxsaW5lIHgxPSIyOTAiIHkxPSIxMjAiIHgyPSIyOTAiIHkyPSIxODAiIHN0cm9rZT0iIzE4OTBmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1LDUiLz48L3N2Zz4=" x1="145" y1="70" x2="145" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="235" y1="70" x2="235" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            <line x1="325" y1="70" x2="325" y2="120" stroke="#1890ff" stroke-width="2"/>
+                            
+                            <!-- 应用输出 -->
+                            <rect x="20" y="230"
