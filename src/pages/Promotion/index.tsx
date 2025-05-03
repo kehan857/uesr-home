@@ -581,22 +581,22 @@ const Promotion: React.FC = () => {
         <div style={{ position: 'relative', zIndex: 1 }}>
           <h1 style={{ color: 'white', marginBottom: '24px', fontSize: '3rem', fontWeight: 'bold' }}>
             企业大脑 — 激活数据智能，驱动制造新未来
-          </h1>
+        </h1>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.25rem', maxWidth: '900px', margin: '0 auto 40px', lineHeight: 1.8 }}>
             整合企业内外部数据与知识，利用大语言模型与AI技术，为制造业企业提供洞察、预测、决策支持和自动化能力的智能化平台
-          </p>
-          <Space size="large">
-            <Link to="/register">
+        </p>
+        <Space size="large">
+          <Link to="/register">
               <Button type="primary" size="large" icon={<RocketOutlined />} style={{ height: '48px', fontSize: '16px', padding: '0 32px' }}>
                 免费试用30天
-              </Button>
-            </Link>
-            <Link to="/subscription">
+            </Button>
+          </Link>
+          <Link to="/subscription">
               <Button size="large" ghost style={{ height: '48px', fontSize: '16px', padding: '0 32px' }}>
                 查看套餐详情
-              </Button>
-            </Link>
-          </Space>
+            </Button>
+          </Link>
+        </Space>
           <div style={{ marginTop: '40px', display: 'flex', justifyContent: 'center', gap: '40px' }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <SafetyCertificateOutlined style={{ fontSize: '24px', marginRight: '8px', color: '#52c41a' }} />
@@ -787,13 +787,14 @@ const Promotion: React.FC = () => {
                           >
                             {plan.id === 'free' ? '免费试用' : '订阅套餐'}
                           </Button>
-                          <Button 
-                            type="link" 
-                            block
-                            onClick={() => handleViewDetail(plan)}
-                          >
-                            查看详情
-                          </Button>
+                          <Link to="/register">
+                            <Button 
+                              type="link" 
+                              block
+                            >
+                              查看详情
+                            </Button>
+                          </Link>
                         </Space>
                       </div>
                     </Card>
@@ -823,14 +824,15 @@ const Promotion: React.FC = () => {
             </div>
             
             <div className="text-center" style={{ marginTop: '40px' }}>
-              <Button 
-                type="primary" 
-                size="large" 
-                style={{ padding: '0 32px', height: '48px', fontSize: '16px' }}
-                onClick={() => setCompareModalVisible(true)}
-              >
-                查看套餐详细对比
-              </Button>
+              <Link to="/register">
+                <Button 
+                  type="primary" 
+                  size="large" 
+                  style={{ padding: '0 32px', height: '48px', fontSize: '16px' }}
+                >
+                  查看套餐详细对比
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -1077,7 +1079,7 @@ const Promotion: React.FC = () => {
         {/* 立即开始区域 */}
         <section style={{ 
           padding: '100px 0', 
-          background: 'white',
+          background: '#f7f9fc',
           color: '#333',
           textAlign: 'center'
         }}>
@@ -1167,19 +1169,19 @@ const Promotion: React.FC = () => {
                 </Card>
               </Col>
             </Row>
-            
-            <Space size="large">
-              <Link to="/register">
+
+          <Space size="large">
+            <Link to="/register">
                 <Button type="primary" size="large" icon={<RocketOutlined />} style={{ height: '48px', fontSize: '16px', padding: '0 32px' }}>
                   免费试用30天
-                </Button>
-              </Link>
-              <Link to="/subscription">
+              </Button>
+            </Link>
+            <Link to="/subscription">
                 <Button type="default" size="large" style={{ height: '48px', fontSize: '16px', padding: '0 32px' }}>
                   查看套餐详情
-                </Button>
-              </Link>
-            </Space>
+              </Button>
+            </Link>
+          </Space>
           </div>
         </section>
 
@@ -1239,7 +1241,7 @@ const Promotion: React.FC = () => {
                       北京市朝阳区科技园区88号
                     </p>
                   </div>
-                  
+
                   <Card style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'transparent' }}>
                     <Input.Group compact>
                       <Input 
