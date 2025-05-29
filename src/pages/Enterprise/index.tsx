@@ -12,7 +12,17 @@ import {
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadFile } from 'antd/es/upload/interface';
-import { styleConstants } from '@/theme';
+
+// 定义样式常量，替代@/theme
+const styleConstants = {
+  spacing: {
+    xs: 4,
+    sm: 8,
+    md: 16,
+    lg: 24,
+    xl: 32
+  }
+};
 
 type EnterpriseStatus = 'unverified' | 'pending' | 'verified' | 'rejected';
 

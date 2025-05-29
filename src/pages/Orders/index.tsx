@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Table, Tag, Button, Space, Typography } from 'antd';
 import type { TableProps } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -87,15 +86,6 @@ const Orders: React.FC = () => {
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
-          {record.status === 'paid' && (
-            <Button
-              type="link"
-              icon={<DownloadOutlined />}
-              onClick={() => console.log('下载发票', record.orderNo)}
-            >
-              下载发票
-            </Button>
-          )}
           {record.status === 'pending' && (
             <Button
               type="link"

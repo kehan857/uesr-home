@@ -65,11 +65,6 @@ const Messages: React.FC = () => {
     ));
   };
 
-  const filterMessages = (type: string) => {
-    if (type === 'all') return messages;
-    return messages.filter(msg => msg.type === type);
-  };
-
   const unreadCount = messages.filter(msg => msg.status === 'unread').length;
 
   const items = [
@@ -81,19 +76,7 @@ const Messages: React.FC = () => {
           {unreadCount > 0 && <Badge count={unreadCount} style={{ marginLeft: 8 }} />}
         </span>
       ),
-    },
-    {
-      key: 'system',
-      label: '系统通知',
-    },
-    {
-      key: 'subscription',
-      label: '订阅相关',
-    },
-    {
-      key: 'order',
-      label: '订单消息',
-    },
+    }
   ];
 
   return (
@@ -103,13 +86,12 @@ const Messages: React.FC = () => {
         消息中心
       </Title>
       <Tabs
-        activeKey={activeTab}
-        onChange={setActiveTab}
+        activeKey="all"
         items={items}
       />
       <List
         itemLayout="vertical"
-        dataSource={filterMessages(activeTab)}
+        dataSource={messages}
         locale={{
           emptyText: <Empty description="暂无消息" />,
         }}

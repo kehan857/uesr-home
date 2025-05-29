@@ -1,0 +1,25 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="80" height="80" rx="8" fill="#E6F7FF" />
+  <path d="M35 30H65C66.1046 30 67 30.8954 67 32V38C67 39.1046 66.1046 40 65 40H35C33.8954 40 33 39.1046 33 38V32C33 30.8954 33.8954 30 35 30Z" fill="#1677FF" />
+  <rect x="38" y="34" width="24" height="2" rx="1" fill="white" />
+  <path d="M35 50H65C66.1046 50 67 50.8954 67 52V58C67 59.1046 66.1046 60 65 60H35C33.8954 60 33 59.1046 33 58V52C33 50.8954 33.8954 50 35 50Z" fill="#1677FF" opacity="0.8" />
+  <rect x="38" y="54" width="24" height="2" rx="1" fill="white" />
+  <path d="M35 70H65C66.1046 70 67 70.8954 67 72V78C67 79.1046 66.1046 80 65 80H35C33.8954 80 33 79.1046 33 78V72C33 70.8954 33.8954 70 35 70Z" fill="#1677FF" opacity="0.6" />
+  <rect x="38" y="74" width="24" height="2" rx="1" fill="white" />
+  
+  <path d="M73 34L77 34C79.2091 34 81 35.7909 81 38L81 74C81 76.2091 79.2091 78 77 78L73 78" stroke="#1677FF" stroke-width="2" stroke-linecap="round" />
+  <path d="M27 34L23 34C20.7909 34 19 35.7909 19 38L19 74C19 76.2091 20.7909 78 23 78L27 78" stroke="#1677FF" stroke-width="2" stroke-linecap="round" />
+  
+  <circle cx="73" cy="35" r="3" fill="#1677FF" />
+  <circle cx="73" cy="55" r="3" fill="#1677FF" opacity="0.8" />
+  <circle cx="73" cy="75" r="3" fill="#1677FF" opacity="0.6" />
+  
+  <circle cx="27" cy="35" r="3" fill="#1677FF" />
+  <circle cx="27" cy="55" r="3" fill="#1677FF" opacity="0.8" />
+  <circle cx="27" cy="75" r="3" fill="#1677FF" opacity="0.6" />
+  
+  <path d="M50 20V24" stroke="#1677FF" stroke-width="2" stroke-linecap="round" />
+  <path d="M50 86V90" stroke="#1677FF" stroke-width="2" stroke-linecap="round" />
+  <circle cx="50" cy="20" r="3" fill="#1677FF" />
+  <circle cx="50" cy="90" r="3" fill="#1677FF" />
+</svg> 

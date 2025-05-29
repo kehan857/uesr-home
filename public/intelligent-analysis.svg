@@ -1,0 +1,32 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="80" height="80" rx="8" fill="#E6F7FF" />
+  
+  <!-- 图表元素 -->
+  <rect x="20" y="60" width="12" height="20" rx="2" fill="#1677FF" />
+  <rect x="36" y="45" width="12" height="35" rx="2" fill="#1677FF" opacity="0.8" />
+  <rect x="52" y="55" width="12" height="25" rx="2" fill="#1677FF" opacity="0.6" />
+  <rect x="68" y="35" width="12" height="45" rx="2" fill="#1677FF" opacity="0.9" />
+  
+  <!-- 坐标轴 -->
+  <path d="M20 85H80" stroke="#1677FF" stroke-width="2" stroke-linecap="round" />
+  <path d="M20 85L20 30" stroke="#1677FF" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- 数据点与连线 -->
+  <circle cx="26" cy="35" r="3" fill="#1677FF" />
+  <circle cx="42" cy="28" r="3" fill="#1677FF" />
+  <circle cx="58" cy="40" r="3" fill="#1677FF" />
+  <circle cx="74" cy="25" r="3" fill="#1677FF" />
+  
+  <path d="M26 35L42 28L58 40L74 25" stroke="#1677FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- 放大镜 -->
+  <circle cx="60" cy="55" r="25" fill="white" fill-opacity="0.3" stroke="#1677FF" stroke-width="2" stroke-dasharray="4 2" />
+  
+  <!-- 数据指示点 -->
+  <path d="M42 28L50 22" stroke="#1677FF" stroke-width="1.5" stroke-linecap="round" />
+  <rect x="50" y="15" width="25" height="13" rx="2" fill="white" stroke="#1677FF" stroke-width="1.5" />
+  <path d="M55 21.5H70" stroke="#1677FF" stroke-width="1.5" stroke-linecap="round" />
+  
+  <!-- 波浪线 -->
+  <path d="M25 70C27 68 29 67 31 70C33 73 35 73 37 70C39 67 41 67 43 70C45 73 47 73 49 70C51 67 53 67 55 70C57 73 59 73 61 70C63 67 65 67 67 70C69 73 71 73 73 70" stroke="#1677FF" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.6" />
+</svg> 

@@ -9,7 +9,7 @@ interface User {
 interface AuthContextType {
   isLoggedIn: boolean;
   user: User | null;
-  login: (username: string, password: string) => Promise<void>;
+  login: (username: string, password: string, type?: 'code' | 'password') => Promise<void>;
   register: (username: string, password: string) => Promise<void>;
   logout: () => void;
 }
@@ -38,7 +38,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = async (username: string, password: string) => {
+  const login = async (username: string, password: string, type: 'code' | 'password' = 'password') => {
     // 模拟登录API调用
     try {
       // 实际项目中这里应该调用后端API
@@ -46,7 +46,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(mockUser);
       setIsLoggedIn(true);
       localStorage.setItem('user', JSON.stringify(mockUser));
-      navigate('/promotion');
+      navigate('/'); // 登录成功后导航到首页
     } catch (error) {
       console.error('Login failed:', error);
       throw error;
@@ -61,7 +61,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(mockUser);
       setIsLoggedIn(true);
       localStorage.setItem('user', JSON.stringify(mockUser));
-      navigate('/promotion');
+      navigate('/'); // 注册成功后导航到首页
     } catch (error) {
       console.error('Registration failed:', error);
       throw error;
@@ -72,7 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
     setIsLoggedIn(false);
     localStorage.removeItem('user');
-    navigate('/promotion');
+    navigate('/');
   };
 
   return (

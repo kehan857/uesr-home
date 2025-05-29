@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Button, Tag, Typography, message, Collapse } from 'antd';
-import { CheckOutlined, CaretRightOutlined } from '@ant-design/icons';
+import { Card, Row, Col, Button, Tag, Typography, message, Collapse, Modal } from 'antd';
+import { CheckOutlined, CaretRightOutlined, PhoneOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
 const { Title, Text } = Typography;
@@ -92,12 +92,12 @@ const subscriptionPlans: SubscriptionPlan[] = [
 
 const Subscription: React.FC = () => {
   const navigate = useNavigate();
+  const [isContactModalVisible, setIsContactModalVisible] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<SubscriptionPlan | null>(null);
 
   const handleSubscribe = (plan: SubscriptionPlan) => {
-    message.success(`您已选择${plan.name}套餐，即将跳转到支付页面`);
-    setTimeout(() => {
-      navigate('/payment', { state: { plan } });
-    }, 1500);
+    setSelectedPlan(plan);
+    setIsContactModalVisible(true);
   };
 
   return (
@@ -296,6 +296,61 @@ const Subscription: React.FC = () => {
           </Col>
         ))}
       </Row>
+
+      {/* 联系方式模态框 */}
+      <Modal
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <PhoneOutlined style={{ color: '#1890ff' }} />
+            <span>联系我们开通服务</span>
+          </div>
+        }
+        open={isContactModalVisible}
+        onCancel={() => setIsContactModalVisible(false)}
+        footer={[
+          <Button key="close" onClick={() => setIsContactModalVisible(false)}>
+            关闭
+          </Button>
+        ]}
+        width={420}
+        centered
+      >
+        <div style={{ padding: '20px', textAlign: 'center' }}>
+          <div style={{ marginBottom: '24px' }}>
+            {selectedPlan && (
+              <Text>
+                您已选择 <Text strong style={{ color: '#1890ff' }}>{selectedPlan.name}</Text> 套餐
+              </Text>
+            )}
+          </div>
+          
+          <div style={{ 
+            padding: '16px', 
+            background: '#f0f5ff', 
+            borderRadius: '8px',
+            marginBottom: '16px'
+          }}>
+            <Text strong style={{ fontSize: '16px', display: 'block', marginBottom: '8px' }}>
+              请拨打客服电话咨询并开通服务：
+            </Text>
+            <Text strong style={{ 
+              fontSize: '24px', 
+              color: '#1890ff',
+              display: 'block',
+              margin: '16px 0'
+            }}>
+              400-999-3607
+            </Text>
+            <Text type="secondary">
+              工作时间：周一至周五 9:00-18:00
+            </Text>
+          </div>
+          
+          <Text type="secondary" style={{ fontSize: '14px' }}>
+            我们的客服人员将为您提供专业的套餐咨询和定制化服务建议
+          </Text>
+        </div>
+      </Modal>
     </div>
   );
 };

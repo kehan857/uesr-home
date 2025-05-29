@@ -1,0 +1,1750 @@
+/* 全局样式 */
+:root {
+  --primary-color: #1677ff; /* 主色调：蓝色 */
+  --primary-hover: #0958d9; /* 主色调悬停色 */
+  --secondary-color: #06b6d4; /* 辅助色：青色 */
+  --accent-color: #f59e0b; /* 强调色：橙色 */
+  --text-primary: #222; /* 主要文本色 */
+  --text-secondary: #666; /* 次要文本色 */
+  --text-light: #888; /* 轻文本色 */
+  --background-light: #f7f9fb; /* 浅背景色 */
+  --background-white: #fff; /* 白色背景 */
+  --border-light: #eee; /* 浅边框色 */
+  --border-medium: #ddd; /* 中等边框色 */
+  --shadow-light: 0 2px 8px rgba(0,0,0,0.05); /* 轻阴影 */
+  --shadow-medium: 0 4px 16px rgba(0,0,0,0.08); /* 中等阴影 */
+  --shadow-hover: 0 6px 24px rgba(22,119,255,0.15); /* 悬停阴影 */
+  --radius-sm: 4px; /* 小圆角 */
+  --radius-md: 8px; /* 中等圆角 */
+  --radius-lg: 12px; /* 大圆角 */
+  --transition-fast: 0.2s; /* 快速过渡 */
+  --transition-medium: 0.3s; /* 中等过渡 */
+  --font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 字体 */
+}
+
+/* 基础样式 */
+.eb-container {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background: var(--background-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 4rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* 顶部导航栏 */
+.eb-header {
+  background: var(--background-white);
+  box-shadow: var(--shadow-light);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 1rem;
+  height: 4rem;
+  transition: all 0.3s ease;
+}
+
+.eb-header.scrolled {
+  box-shadow: var(--shadow-medium);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.eb-header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.eb-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+.eb-nav {
+  display: flex;
+  align-items: center;
+}
+
+.eb-nav-item {
+  margin: 0 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  padding: 8px 0;
+}
+
+.eb-nav-item:hover {
+  color: var(--primary-color);
+}
+
+.eb-nav-item.active {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.eb-nav-item.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.eb-header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* 英雄区域 */
+.eb-hero {
+  padding-top: 6rem;
+  margin-top: -4rem;
+  background: linear-gradient(135deg, rgba(22, 119, 255, 0.1), rgba(6, 182, 212, 0.05));
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 5rem;
+}
+
+.eb-hero-content {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.eb-hero-title {
+  font-size: 2.75rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.eb-hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eb-hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.eb-hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.eb-primary-btn {
+  font-weight: 500;
+}
+
+.eb-scroll-indicator {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  opacity: 0.7;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 通用区域样式 */
+.eb-section {
+  padding: 5rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  scroll-margin-top: 4rem;
+}
+
+.eb-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.eb-section-header h2 {
+  font-size: 2.25rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.eb-section-header p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 产品优势部分 */
+.eb-advantages-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.eb-advantage-card {
+  background: var(--background-white);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-light);
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
+  text-align: center;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+  opacity: 0;
+  transform: translateY(20px);
+  cursor: pointer;
+  position: relative;
+}
+
+.eb-advantage-card.animate-in {
+  animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eb-advantage-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.eb-advantage-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.eb-advantage-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.eb-advantage-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1200px) {
+  .eb-advantage-card {
+    flex: 0 0 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .eb-advantage-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* 技术架构部分 */
+.eb-architecture {
+  padding-top: 4rem;
+}
+
+.eb-architecture-full {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.eb-architecture-diagram {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto 2rem;
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+.eb-arch-img {
+  width: 100%;
+  display: block;
+  transition: transform var(--transition-medium);
+}
+
+.eb-arch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+.eb-arch-overlay span {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.eb-architecture-diagram:hover .eb-arch-img {
+  transform: scale(1.02);
+}
+
+.eb-architecture-diagram:hover .eb-arch-overlay {
+  opacity: 1;
+}
+
+.eb-architecture-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .eb-architecture-diagram {
+    max-width: 100%;
+  }
+}
+
+/* 核心功能部分 */
+.eb-features {
+  padding-top: 5rem;
+}
+
+.eb-features-tabs {
+  margin-top: 3rem;
+}
+
+.eb-features-tabs .ant-tabs-nav {
+  margin-bottom: 2rem;
+}
+
+.eb-tab-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eb-feature-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.eb-feature-text {
+  flex: 1;
+}
+
+.eb-feature-text h3 {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.eb-feature-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.eb-feature-bullets {
+  margin-bottom: 2rem;
+}
+
+.eb-feature-bullets li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.eb-bullet-icon {
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.eb-feature-image {
+  flex: 1;
+  max-width: 450px;
+  box-shadow: var(--shadow-medium);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.eb-feature-image img {
+  width: 100%;
+  display: block;
+}
+
+/* 核心功能图片容器 */
+.eb-feature-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+}
+
+/* 图片占位符样式 */
+.eb-feature-image-fallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+}
+
+.eb-feature-image-fallback.data-integration {
+  background: linear-gradient(120deg, #1677ff, #06b6d4);
+}
+
+.eb-feature-image-fallback.knowledge-graph {
+  background: linear-gradient(120deg, #06b6d4, #0ca678);
+}
+
+.eb-feature-image-fallback.bi-dashboard {
+  background: linear-gradient(120deg, #0ca678, #f59e0b);
+}
+
+.eb-feature-image-fallback.ai-prediction {
+  background: linear-gradient(120deg, #f59e0b, #1677ff);
+}
+
+.eb-feature-image-fallback .feature-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.eb-feature-image-fallback span {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* 应用场景部分 */
+.eb-scenarios {
+  padding: 5rem 1rem;
+  background: linear-gradient(to bottom, var(--background-light), #fff);
+}
+
+.eb-scenarios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.eb-scenario-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  background: var(--background-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-light);
+  padding: 2rem;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+.eb-scenario-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.eb-scenario-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.eb-scenario-content h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.eb-scenario-content h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.eb-scenario-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  flex: 1;
+}
+
+.eb-scenario-results {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.eb-scenario-results li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.eb-scenario-results li:last-child {
+  margin-bottom: 0;
+}
+
+.eb-scenario-results li .anticon {
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .eb-scenarios-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .eb-scenario-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .eb-scenario-icon {
+    flex: 0 0 auto;
+  }
+  
+  .eb-plan-card {
+    max-width: none;
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .eb-scenarios-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .eb-scenario-card {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .eb-scenario-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .eb-scenario-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .eb-scenario-results li {
+    font-size: 0.9rem;
+  }
+  
+  .eb-section-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .eb-plan-card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .eb-cases-partners {
+    margin-top: 3rem;
+  }
+  
+  .eb-partners-logos {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .eb-scenario-card {
+    padding: 1.25rem;
+  }
+  
+  .eb-scenario-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .eb-scenario-content {
+    padding: 0.5rem;
+  }
+  
+  .eb-case-results {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .eb-cta-buttons {
+    flex-direction: column;
+  }
+}
+
+.eb-customer-quote {
+  padding: 1.25rem;
+  background: rgba(22, 119, 255, 0.05);
+  border-radius: var(--radius-md);
+  font-style: italic;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+.eb-customer-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 3rem;
+  color: rgba(22, 119, 255, 0.2);
+}
+
+.eb-quote-source {
+  margin-top: 0.75rem;
+  text-align: right;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* 解决方案部分 */
+.eb-solutions {
+  padding: 5rem 1rem;
+}
+
+.eb-solutions-grid {
+  margin-top: 3rem;
+}
+
+.eb-solution-card {
+  height: 100%;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+}
+
+.eb-solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.eb-solution-card h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.eb-solution-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.eb-solution-card ul {
+  margin-bottom: 1.5rem;
+}
+
+.eb-solution-card ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.eb-solution-card ul li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.eb-solution-link {
+  padding: 0;
+  margin-top: auto;
+  font-weight: 500;
+}
+
+.eb-solution-link .anticon {
+  transition: transform var(--transition-fast);
+}
+
+.eb-solution-link:hover .anticon {
+  transform: translateX(4px);
+}
+
+.eb-solutions-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.eb-solutions-cta p {
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+}
+
+/* 套餐方案部分 */
+.eb-plans {
+  padding: 5rem 1rem;
+  background: linear-gradient(to bottom, #fff, rgba(22, 119, 255, 0.05));
+}
+
+.eb-plans-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.eb-plan-card {
+  background: var(--background-white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-light);
+  flex: 1;
+  max-width: 300px;
+  min-width: 250px;
+  position: relative;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+}
+
+.eb-plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-color);
+}
+
+.eb-plan-card.popular {
+  box-shadow: var(--shadow-hover);
+  border: 2px solid var(--primary-color);
+}
+
+.eb-plan-popular-tag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.eb-plan-name {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.eb-plan-price {
+  margin-bottom: 1rem;
+}
+
+.eb-plan-price .price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.eb-plan-price .period {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.eb-plan-target {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.eb-plan-features {
+  margin-bottom: 2rem;
+}
+
+.eb-plan-features li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.eb-check-icon {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+.eb-plan-cta {
+  margin-top: auto;
+}
+
+.eb-plans-compare {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+/* 客户案例部分 */
+.eb-cases {
+  padding: 5rem 1rem;
+}
+
+.eb-cases-grid {
+  margin-top: 3rem;
+}
+
+.eb-case-card {
+  height: 100%;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+}
+
+.eb-case-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.eb-case-logo {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.eb-case-logo img {
+  max-height: 100%;
+  max-width: 180px;
+}
+
+.eb-case-card h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.eb-case-achievement {
+  background: rgba(22, 119, 255, 0.05);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.eb-case-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.eb-case-results li {
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+}
+
+.result-number {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.eb-case-link {
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.eb-case-link .anticon {
+  transition: transform var(--transition-fast);
+}
+
+.eb-case-link:hover .anticon {
+  transform: translateX(4px);
+}
+
+.eb-cases-partners {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.eb-cases-partners h3 {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.eb-partners-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.eb-partners-logos img {
+  height: 40px;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.eb-partners-logos img:hover {
+  opacity: 1;
+}
+
+/* CTA部分 */
+.eb-cta {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.eb-cta-container {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.eb-cta-container h2 {
+  font-size: 2.25rem;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+
+.eb-cta-container p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.eb-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.eb-cta-buttons button:first-child {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+}
+
+.eb-cta-buttons button:last-child {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 页脚部分 */
+.eb-footer {
+  background-color: var(--background-light);
+  padding: 3rem 1rem 2rem;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.eb-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.eb-footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+
+.eb-footer-company {
+  width: 25%;
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+.eb-footer-company h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  margin-top: 1rem;
+  color: var(--text-primary);
+}
+
+.eb-footer-company h3:first-child {
+  margin-top: 0;
+}
+
+.eb-footer-company p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.eb-service-phone {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.eb-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.eb-footer-column {
+  flex: 1 1 160px;
+  min-width: 160px;
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.eb-footer-column h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+}
+
+.eb-footer-platform,
+.eb-footer-iot,
+.eb-footer-software {
+  margin-bottom: 2rem;
+}
+
+.eb-footer-services,
+.eb-footer-integration {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.eb-footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eb-footer-column ul li {
+  margin-bottom: 0.4rem;
+}
+
+.eb-footer-column ul li a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.eb-footer-column ul li a:hover {
+  color: var(--primary-color);
+}
+
+.eb-footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e8e8e8;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+  .eb-footer-content {
+    gap: 2rem;
+  }
+
+  .eb-footer-company {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .eb-footer-links {
+    width: 100%;
+    gap: 25px;
+  }
+
+  .eb-footer-column {
+    flex: 1 1 calc(20% - 25px);
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eb-footer-content {
+    flex-direction: column;
+  }
+
+  .eb-footer-company {
+    width: 100%;
+    min-width: auto;
+    margin-bottom: 1.5rem;
+  }
+  
+  .eb-footer-links {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .eb-footer-column {
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: auto;
+    max-width: calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .eb-footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .eb-footer-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* 横向滚动容器样式 */
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-light);
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--background-light);
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+/* 横向滚动内容 */
+.scroll-content {
+  display: inline-flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0.5rem;
+}
+
+/* 修改卡片样式适应横向滚动 */
+.scroll-content .eb-advantage-card,
+.scroll-content .eb-solution-card,
+.scroll-content .eb-plan-card,
+.scroll-content .eb-case-card {
+  flex: 0 0 auto;
+  margin-bottom: 0.5rem;
+  white-space: normal;
+}
+
+.scroll-content .eb-advantage-card {
+  width: 280px;
+}
+
+.scroll-content .eb-solution-card {
+  width: 320px;
+}
+
+.scroll-content .eb-plan-card {
+  width: 280px;
+}
+
+.scroll-content .eb-case-card {
+  width: 360px;
+}
+
+/* 简化套餐展示样式 */
+.eb-plan-simplified {
+  background: var(--background-white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  min-width: 280px;
+  box-shadow: var(--shadow-light);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.eb-plan-simplified:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.eb-plan-simplified::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+  opacity: 0.8;
+}
+
+.eb-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.75rem;
+}
+
+.eb-plan-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.eb-plan-price-tag {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.eb-plan-desc {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.eb-plan-highlights {
+  margin: 0.75rem 0;
+  flex-grow: 1;
+}
+
+.eb-plan-highlights li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.eb-cta-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* 场景部分适配横向滚动 */
+.eb-scenarios-scroll {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-light);
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.eb-scenarios-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.eb-scenarios-scroll::-webkit-scrollbar-track {
+  background: var(--background-light);
+  border-radius: 10px;
+}
+
+.eb-scenarios-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.eb-scenarios-scroll .eb-scenario-slide {
+  display: inline-block;
+  width: 80%;
+  min-width: 320px;
+  max-width: 900px;
+  padding: 0 1rem;
+  white-space: normal;
+  vertical-align: top;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .eb-hero-cta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .eb-feature-content {
+    flex-direction: column;
+  }
+  
+  .eb-feature-image {
+    order: -1;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .eb-feature-image-container {
+    min-height: 220px;
+  }
+  
+  .eb-feature-image-fallback {
+    padding: 1.5rem;
+  }
+  
+  .eb-feature-image-fallback .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .eb-feature-image-fallback span {
+    font-size: 1.1rem;
+  }
+  
+  .scroll-content .eb-advantage-card,
+  .scroll-content .eb-solution-card,
+  .scroll-content .eb-plan-card,
+  .scroll-content .eb-case-card {
+    width: 85vw;
+    max-width: 360px;
+  }
+}
+
+/* 添加套餐图标相关样式 */
+.eb-plan-icon-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.eb-plan-main-icon {
+  background: #f0f7ff;
+  border-radius: 12px;
+  padding: 16px 0;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.eb-plan-card:hover .eb-plan-main-icon {
+  background: #e6f4ff;
+  transform: translateY(-5px);
+}
+
+.eb-plan-icon {
+  font-size: 48px !important;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.eb-plan-icon-title {
+  font-weight: 600;
+  margin-top: 8px;
+  color: var(--text-primary);
+}
+
+.eb-plan-minor-icons {
+  margin-bottom: 15px;
+}
+
+.eb-plan-minor-icon {
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 8px 4px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.eb-plan-minor-icon .anticon {
+  font-size: 24px;
+  color: #52c41a;
+  margin-bottom: 4px;
+}
+
+.eb-plan-minor-icon div {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.eb-plan-card:hover .eb-plan-minor-icon {
+  background: #f0f0f0;
+}
+
+/* 套餐Token额度展示样式 */
+.eb-plan-token {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  border-top: 1px dashed var(--border-light);
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.eb-plan-token-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.eb-plan-token-value {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+/* 推荐标签样式 */
+.eb-recommended-badge {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 套餐功能模块区域样式 */
+.eb-plan-modules {
+  margin: 15px 0;
+}
+
+.eb-plan-module-section {
+  margin-bottom: 15px;
+}
+
+.eb-plan-module-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-size: 14px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.eb-plan-module-title:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 14px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.eb-plan-module-list {
+  padding-left: 5px;
+}
+
+.eb-plan-module-list li {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+}
+
+.eb-plan-module-list .eb-plan-feature-icon {
+  color: #52c41a;
+  margin-right: 5px;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* 套餐对比表格中标准版列高亮 */
+.highlight-column {
+  background-color: rgba(24, 144, 255, 0.05) !important;
+}
+
+/* 让表格更紧凑 */
+.eb-section .ant-table-cell {
+  padding: 8px !important;
+}
+
+/* 对比按钮样式 */
+.eb-section-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 移动设备导航栏适配 */
+@media (max-width: 768px) {
+  .eb-header-content {
+    position: relative;
+  }
+  
+  .eb-nav {
+    display: flex;
+    overflow-x: auto;
+    width: calc(100% - 180px);
+    margin: 0 auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+  }
+  
+  .eb-nav::-webkit-scrollbar {
+    height: 3px;
+  }
+  
+  .eb-nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .eb-nav::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+  }
+  
+  .eb-nav-item {
+    white-space: nowrap;
+    margin: 0 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .eb-header-actions {
+    position: absolute;
+    right: 0;
+  }
+  
+  .eb-header-actions button {
+    padding: 0 12px;
+    font-size: 0.9rem;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eb-logo {
+    font-size: 1.25rem;
+  }
+  
+  .eb-nav {
+    width: calc(100% - 140px);
+  }
+  
+  .eb-nav-item {
+    margin: 0 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* 功能图片交互动画 */
+.eb-feature-image-container img,
+.eb-feature-image-fallback {
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.eb-feature-image-container:hover img,
+.eb-feature-image-container:hover .eb-feature-image-fallback {
+  transform: scale(1.02);
+}
+
+.eb-feature-image-fallback .feature-icon {
+  transition: transform 0.5s ease;
+}
+
+.eb-feature-image-fallback:hover .feature-icon {
+  transform: scale(1.2);
+}
+
+/* 可点击元素悬停效果 */
+.eb-advantage-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.eb-feature-image-container:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-hover);
+}
+
+.eb-feature-image-container:hover .feature-icon {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.eb-scenario-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.eb-solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.eb-advantage-card, 
+.eb-scenario-card,
+.eb-solution-card,
+.eb-feature-image-container {
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+  position: relative;
+}
+
+/* 添加点击提示效果 */
+.eb-advantage-card:after,
+.eb-scenario-card:after,
+.eb-solution-card:after,
+.eb-feature-image-container:after {
+  content: '点击查看详情';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(22, 119, 255, 0.1);
+  color: var(--primary-color);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.eb-advantage-card:hover:after,
+.eb-scenario-card:hover:after,
+.eb-solution-card:hover:after,
+.eb-feature-image-container:hover:after {
+  opacity: 1;
+} 

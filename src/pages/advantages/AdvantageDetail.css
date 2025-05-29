@@ -1,0 +1,504 @@
+/* 产品优势详情页基础样式 */
+.advantage-page {
+  min-height: 100vh;
+  background-color: var(--background-light);
+  font-family: var(--font-family);
+}
+
+/* 页头样式 */
+.advantage-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-small);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.advantage-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  padding: 0;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.back-button:hover {
+  color: var(--primary-color-hover);
+}
+
+/* 英雄区样式 */
+.advantage-hero {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.advantage-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.advantage-hero-content {
+  max-width: 1000px;
+  color: white;
+  z-index: 1;
+}
+
+.advantage-hero-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.advantage-hero-content h1 {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.advantage-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.customer-quote {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 3rem;
+  color: white;
+  font-style: italic;
+}
+
+.quote-mark {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  font-size: 4rem;
+  opacity: 0.6;
+  font-family: serif;
+}
+
+.quote-mark-end {
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: -3rem;
+}
+
+.advantage-tags {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.advantage-tags .ant-tag {
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+}
+
+/* 区块通用样式 */
+.advantage-section {
+  padding: 5rem 1rem;
+}
+
+.advantage-section:nth-child(odd) {
+  background-color: white;
+}
+
+.advantage-section:nth-child(even) {
+  background-color: var(--background-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-header h2 {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.section-header-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+/* 为什么重要板块 */
+.advantage-why-matters {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.why-matters-card {
+  height: 100%;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-small);
+}
+
+.why-matters-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.why-matters-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.why-matters-content {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.why-matters-description {
+  margin-top: 3rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 解决方案与核心功能 */
+.advantage-solutions {
+  background-color: white;
+}
+
+.advantage-feature-block {
+  margin-bottom: 3rem;
+}
+
+.advantage-feature-block:last-child {
+  margin-bottom: 0;
+}
+
+.feature-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-small);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+.feature-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feature-content {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.feature-card.reverse .feature-row {
+  flex-direction: row-reverse;
+}
+
+.feature-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.feature-points {
+  margin-top: 2rem;
+}
+
+.feature-point {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.point-icon {
+  color: var(--primary-color);
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.feature-image-col {
+  padding: 0;
+}
+
+.feature-image {
+  height: 100%;
+  min-height: 350px;
+  position: relative;
+}
+
+.feature-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.image-icon {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.image-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* 客户成功案例 */
+.case-study-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-small);
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+
+.case-study-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.case-company h4 {
+  margin-bottom: 0.5rem;
+}
+
+.case-section {
+  margin-bottom: 1.5rem;
+}
+
+.case-section:last-child {
+  margin-bottom: 0;
+}
+
+.case-section-icon {
+  margin-right: 8px;
+}
+
+.case-section h5 {
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+.case-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.case-result {
+  display: flex;
+  align-items: flex-start;
+}
+
+.result-icon {
+  color: var(--primary-color);
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.case-footer {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+/* 底部CTA部分 */
+.advantage-cta {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  margin-bottom: 0;
+}
+
+.advantage-cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.advantage-cta-content h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.advantage-cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* 相关内容导航 */
+.advantage-related {
+  padding: 3rem 1rem;
+  background-color: white;
+}
+
+.advantage-related-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.advantage-related-content h4 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.related-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.related-links .ant-btn-link {
+  font-size: 1.1rem;
+}
+
+/* 加载状态 */
+.advantage-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.advantage-not-found {
+  text-align: center;
+  padding: 5rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .advantage-hero {
+    height: 450px;
+  }
+  
+  .advantage-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .advantage-subtitle {
+    font-size: 1.3rem !important;
+  }
+  
+  .feature-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .feature-image {
+    min-height: 250px;
+  }
+  
+  .advantage-section {
+    padding: 3rem 1rem;
+  }
+  
+  .related-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .advantage-hero {
+    height: 400px;
+  }
+  
+  .advantage-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .advantage-subtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .customer-quote {
+    padding: 0 2rem;
+  }
+  
+  .advantage-tags .ant-tag {
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .why-matters-card {
+    margin-bottom: 1rem;
+  }
+  
+  .advantage-section {
+    padding: 2.5rem 1rem;
+  }
+} 

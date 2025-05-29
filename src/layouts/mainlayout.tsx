@@ -1,15 +1,12 @@
 import React from 'react';
-import { Layout, Menu, Avatar, Badge, Dropdown, Space, Typography } from 'antd';
+import { Layout, Menu, Avatar, Dropdown, Space, Typography } from 'antd';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import {
   DashboardOutlined,
   ShopOutlined,
-  MessageOutlined,
-  ShoppingCartOutlined,
   UserOutlined,
   CreditCardOutlined,
   HomeOutlined,
-  BellOutlined,
   LogoutOutlined
 } from '@ant-design/icons';
 import { useAuth } from '../contexts/AuthContext';
@@ -51,19 +48,14 @@ const MainLayout: React.FC = () => {
       label: '仪表盘'
     },
     {
+      key: '/dashboard/subscribed',
+      icon: <DashboardOutlined />,
+      label: '订阅仪表盘'
+    },
+    {
       key: '/enterprise',
       icon: <ShopOutlined />,
       label: '企业认证'
-    },
-    {
-      key: '/messages',
-      icon: <MessageOutlined />,
-      label: '消息中心'
-    },
-    {
-      key: '/orders',
-      icon: <ShoppingCartOutlined />,
-      label: '订单管理'
     },
     {
       key: '/subscription',
@@ -125,12 +117,6 @@ const MainLayout: React.FC = () => {
           width: '100%'
         }}>
           <Space size={24}>
-            <Badge count={5} size="small">
-              <BellOutlined 
-                style={{ fontSize: 20, cursor: 'pointer', color: 'rgba(0,0,0,0.65)' }} 
-                onClick={() => navigate('/messages')} 
-              />
-            </Badge>
             <Dropdown
               menu={{
                 items: userMenuItems,

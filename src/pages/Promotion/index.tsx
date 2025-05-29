@@ -798,7 +798,7 @@ const Promotion: React.FC = () => {
                         </Space>
                       </div>
                     </Card>
-                  </div>
+            </div>
                 ))}
               </Carousel>
               
@@ -820,7 +820,7 @@ const Promotion: React.FC = () => {
                   icon={<RightOutlined />}
                   style={{ boxShadow: '0 4px 12px rgba(24,144,255,0.2)' }}
                 />
-              </div>
+            </div>
             </div>
             
             <div className="text-center" style={{ marginTop: '40px' }}>
@@ -1069,7 +1069,7 @@ const Promotion: React.FC = () => {
                   <p style={{ flex: 1 }}>构建企业知识图谱，沉淀经验，实现知识共享和复用</p>
                   <div style={{ background: '#f5f5f5', width: '100%', padding: '10px', borderRadius: '4px', marginTop: '20px' }}>
                     <Text type="secondary" style={{ fontSize: '13px' }}>工艺知识库 · 故障诊断 · 专家经验传承</Text>
-                  </div>
+            </div>
                 </Card>
               </Col>
             </Row>
@@ -1165,7 +1165,7 @@ const Promotion: React.FC = () => {
                     </div>
                     <Title level={2} style={{ color: '#333', margin: 0 }}>全天候</Title>
                     <Text style={{ color: '#666' }}>技术支持服务</Text>
-                  </Space>
+          </Space>
                 </Card>
               </Col>
             </Row>
@@ -1240,7 +1240,7 @@ const Promotion: React.FC = () => {
                       <i className="fas fa-map-marker-alt" style={{ marginRight: '10px', width: '16px' }}></i>
                       北京市朝阳区科技园区88号
                     </p>
-                  </div>
+      </div>
 
                   <Card style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'transparent' }}>
                     <Input.Group compact>
@@ -1271,8 +1271,8 @@ const Promotion: React.FC = () => {
                 </Space>
               </Col>
             </Row>
-          </div>
-        </footer>
+        </div>
+      </footer>
       </div>
     </div>
   );

@@ -1,11 +1,19 @@
-import React from 'react';
-import { Card, Row, Col, Button, Alert, Progress, Space, Typography, Tag, Descriptions, Statistic, List, Empty } from 'antd';
+import React, { useState } from 'react';
+import { Card, Row, Col, Button, Alert, Progress, Space, Typography, Tag, Descriptions, Statistic, List, Empty, Tabs, Modal } from 'antd';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { RightOutlined, WarningOutlined, RocketOutlined } from '@ant-design/icons';
-import { ErrorBoundary } from '../../components/ErrorBoundary';
+import { RightOutlined, WarningOutlined, RocketOutlined, ReloadOutlined, ArrowUpOutlined, TagsOutlined } from '@ant-design/icons';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 const { Title, Text } = Typography;
+const { TabPane } = Tabs;
+
+// 添加示例Token包数据
+const tokenPackages = [
+  { id: 'small', name: '小型', tokens: 5000000, price: 100 },
+  { id: 'medium', name: '中型', tokens: 15000000, price: 300 },
+  { id: 'large', name: '大型', tokens: 50000000, price: 1000 },
+];
 
 interface DashboardProps {
   isEnterpriseVerified?: boolean;
@@ -16,6 +24,7 @@ interface DashboardProps {
     totalTokens: number;
     usedTokens: number;
     status: 'active' | 'expired' | 'expiring';
+    features?: string[];
   };
   notifications?: Array<{
     id: string;
@@ -33,7 +42,8 @@ const Dashboard: React.FC<DashboardProps> = ({
     expireDate: '',
     totalTokens: 0,
     usedTokens: 0,
-    status: 'expired'
+    status: 'expired',
+    features: []
   },
   notifications = []
 }) => {
@@ -47,13 +57,37 @@ const Dashboard: React.FC<DashboardProps> = ({
   const effectiveSubscriptionInfo = routeState?.subscriptionInfo ?? subscriptionInfo;
   const isFromPayment = routeState?.fromPayment ?? false;
 
+  // Token充值模态框状态
+  const [tokenModalVisible, setTokenModalVisible] = useState(false);
+  const [selectedTokenPackage, setSelectedTokenPackage] = useState<string | null>(null);
+  
   const getStatusTag = (status: string) => {
-    const statusMap = {
+    const statusMap: Record<string, { color: string; text: string }> = {
       active: { color: 'success', text: '生效中' },
       expired: { color: 'error', text: '已过期' },
       expiring: { color: 'warning', text: '即将到期' }
     };
     return <Tag color={statusMap[status]?.color}>{statusMap[status]?.text}</Tag>;
+  };
+
+  // 获取当前套餐的下一级推荐
+  const getRecommendedUpgrade = () => {
+    // 由于已删除availablePlans，直接返回null
+    return null;
+  };
+
+  // 处理Token充值
+  const handleTokenRecharge = () => {
+    setTokenModalVisible(true);
+  };
+
+  // 确认充值
+  const handleTokenPurchase = () => {
+    if (selectedTokenPackage) {
+      const pkg = tokenPackages.find(p => p.id === selectedTokenPackage);
+      navigate('/payment', { state: { tokenPackage: pkg } });
+    }
+    setTokenModalVisible(false);
   };
 
   return (
@@ -85,7 +119,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                     <li>获取更多的业务场景解决方案</li>
                   </ul>
                   <div style={{ textAlign: 'right' }}>
-                    <Link to="/enterprise/verify">
+                    <Link to="/enterprise">
                       <Button type="primary" size="large">立即完成企业认证</Button>
                     </Link>
                   </div>
@@ -134,18 +168,21 @@ const Dashboard: React.FC<DashboardProps> = ({
                             <Tag color="blue" style={{ padding: '4px 8px' }}>{effectiveSubscriptionInfo.name}</Tag>
                             {getStatusTag(effectiveSubscriptionInfo.status)}
                           </Space>
-                          <Button
-                            size="large"
-                            icon={<RocketOutlined />}
-                            type="primary"
-                            style={{
-                              padding: '0 40px',
-                              fontSize: '16px',
-                              fontWeight: 'bold'
-                            }}
-                          >
-                            企业大脑平台服务
-                          </Button>
+                          <Space>
+                            <Button
+                              size="large"
+                              icon={<RocketOutlined />}
+                              type="primary"
+                              style={{
+                                padding: '0 40px',
+                                fontSize: '16px',
+                                fontWeight: 'bold'
+                              }}
+                              onClick={() => navigate('/dashboard/subscribed')}
+                            >
+                              企业大脑控制台
+                            </Button>
+                          </Space>
                         </Space>
                       </Descriptions.Item>
                       <Descriptions.Item label="订阅期限">{effectiveSubscriptionInfo.expireDate}</Descriptions.Item>
@@ -178,7 +215,6 @@ const Dashboard: React.FC<DashboardProps> = ({
             <Col span={24}>
               <Card 
                 title="Token 使用情况"
-                extra={<Link to="/usage">查看详情 <RightOutlined /></Link>}
               >
                 <Row gutter={24} align="middle">
                   <Col span={16}>
@@ -194,70 +230,75 @@ const Dashboard: React.FC<DashboardProps> = ({
                       value={subscriptionInfo.usedTokens}
                       suffix={` / ${subscriptionInfo.totalTokens}`}
                     />
+                    {/* 新增：Token充值按钮 */}
+                    <Button 
+                      type="primary" 
+                      icon={<ReloadOutlined />} 
+                      style={{ marginTop: 16 }}
+                      onClick={handleTokenRecharge}
+                    >
+                      充值Token
+                    </Button>
                   </Col>
                 </Row>
               </Card>
             </Col>
           </>
         )}
-
-        <Col span={24}>
-          <Space direction="vertical" size={24} style={{ width: '100%' }}>
-
-            <Card 
-              title="常用操作"
-              bodyStyle={{ padding: '12px 24px' }}
-            >
-              <Row gutter={[16, 16]}>
-                <Col span={6}>
-                  <Link to="/profile">
-                    <Button block>账户设置</Button>
-                  </Link>
-                </Col>
-                <Col span={6}>
-                  <Link to="/enterprise">
-                    <Button block>{isEnterpriseVerified ? '查看认证' : '去认证'}</Button>
-                  </Link>
-                </Col>
-                <Col span={6}>
-                  <Link to="/orders">
-                    <Button block>订单管理</Button>
-                  </Link>
-                </Col>
-                <Col span={6}>
-                  <Link to="/messages">
-                    <Button block>消息中心</Button>
-                  </Link>
-                </Col>
-              </Row>
-            </Card>
-
-            <Card 
-              title="最新通知"
-              extra={<Link to="/messages">查看全部 <RightOutlined /></Link>}
-            >
-              <List
-                dataSource={notifications.slice(0, 3)}
-                renderItem={item => (
-                  <List.Item>
-                    <Space>
-                      <Tag color={item.type === 'warning' ? 'warning' : item.type === 'success' ? 'success' : 'blue'}>
-                        {item.type === 'warning' ? '警告' : item.type === 'success' ? '成功' : '提醒'}
-                      </Tag>
-                      <span>{item.title}</span>
-                      <Text type="secondary">{item.time}</Text>
-                    </Space>
-                  </List.Item>
-                )}
-                locale={{ emptyText: '暂无通知' }}
-              />
-            </Card>
-          </Space>
-        </Col>
       </Row>
+
+      {/* Token充值模态框 */}
+      <Modal
+        title="Token充值"
+        visible={tokenModalVisible}
+        onCancel={() => setTokenModalVisible(false)}
+        onOk={handleTokenPurchase}
+        okButtonProps={{ disabled: !selectedTokenPackage }}
+        okText="确认充值"
+        cancelText="取消"
+      >
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="标准充值包" key="1">
+            <Row gutter={[16, 16]}>
+              {tokenPackages.map(pkg => (
+                <Col span={8} key={pkg.id}>
+                  <Card
+                    hoverable
+                    style={{ 
+                      borderColor: selectedTokenPackage === pkg.id ? '#1890ff' : '#d9d9d9',
+                      borderWidth: selectedTokenPackage === pkg.id ? '2px' : '1px'
+                    }}
+                    onClick={() => setSelectedTokenPackage(pkg.id)}
+                  >
+                    <div style={{ textAlign: 'center' }}>
+                      <Title level={4}>{pkg.name}包</Title>
+                      <div style={{ margin: '12px 0' }}>
+                        <TagsOutlined style={{ fontSize: 24, color: '#1890ff' }} />
+                        <div style={{ margin: '8px 0' }}>
+                          <Text strong>{(pkg.tokens / 10000).toFixed(0)}万</Text> Token
+                        </div>
+                      </div>
+                      <div style={{ marginTop: 16 }}>
+                        <Text strong style={{ fontSize: 18, color: '#1890ff' }}>¥{pkg.price}</Text>
+                      </div>
+                    </div>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </TabPane>
+          <TabPane tab="自定义充值" key="2">
+            <div style={{ textAlign: 'center', padding: '20px' }}>
+              <Text>如需定制化Token方案，请联系销售人员</Text>
+              <div style={{ marginTop: 16 }}>
+                <Button type="primary">联系销售</Button>
+              </div>
+            </div>
+          </TabPane>
+        </Tabs>
+      </Modal>
     </div>
   );
 };
 
-export const Component = Dashboard;
 export default Dashboard;

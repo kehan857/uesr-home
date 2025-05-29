@@ -1,0 +1,558 @@
+/* 应用场景详情页基础样式 */
+.scenario-page {
+  min-height: 100vh;
+  background-color: var(--background-light);
+  font-family: var(--font-family);
+}
+
+/* 页头样式 */
+.scenario-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-small);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.scenario-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  padding: 0;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.back-button:hover {
+  color: var(--primary-color-hover);
+}
+
+/* 英雄区样式 */
+.scenario-hero {
+  position: relative;
+  padding: 5rem 1rem;
+  background-color: #f5f8ff;
+  background-image: linear-gradient(45deg, rgba(22, 119, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(22, 119, 255, 0.05) 50%, rgba(22, 119, 255, 0.05) 75%, transparent 75%, transparent);
+  background-size: 60px 60px;
+  border-bottom: 1px solid rgba(22, 119, 255, 0.1);
+}
+
+.scenario-hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scenario-hero-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.scenario-hero-content h1 {
+  color: #1c3291;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.scenario-subtitle {
+  margin-bottom: 2rem;
+}
+
+.scenario-subtitle h3 {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.scenario-pain-points {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pain-points-card {
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid rgba(22, 119, 255, 0.2);
+}
+
+.pain-points-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* 区块通用样式 */
+.scenario-section {
+  padding: 5rem 1rem;
+}
+
+.scenario-section:nth-child(odd) {
+  background-color: white;
+}
+
+.scenario-section:nth-child(even) {
+  background-color: var(--background-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-header h2 {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.section-header-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+/* 场景挑战深度剖析 */
+.challenges-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.challenges-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+.image-icon {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.image-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.challenges-timeline {
+  flex: 1;
+  min-width: 300px;
+}
+
+.timeline-label {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.timeline-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-small);
+  border-left: 4px solid var(--primary-color);
+}
+
+.timeline-title {
+  margin-bottom: 0.8rem !important;
+  color: var(--primary-color);
+}
+
+.timeline-description {
+  margin-bottom: 0;
+}
+
+/* 企业大脑赋能 */
+.solution-flow {
+  margin-bottom: 3rem;
+}
+
+.flow-diagram {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  border: 1px solid rgba(22, 119, 255, 0.2);
+}
+
+.flow-header {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  color: white;
+}
+
+.flow-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.flow-steps {
+  display: flex;
+  padding: 2rem;
+  overflow-x: auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  background-color: #f0f5ff;
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 160px;
+  transition: all 0.3s;
+}
+
+.flow-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  background-color: #e6f7ff;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 1rem;
+  font-weight: 600;
+}
+
+.step-content {
+  flex: 1;
+  font-weight: 500;
+}
+
+.step-arrow {
+  margin: 0 1rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.solution-features {
+  margin-top: 3rem;
+}
+
+.feature-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-small);
+  transition: all 0.3s ease;
+  padding: 2rem;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-points {
+  margin-top: 1.5rem;
+}
+
+.feature-point {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.point-icon {
+  color: var(--primary-color);
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+/* 预期成效与客户见证 */
+.outcomes-card,
+.testimonial-card {
+  height: 100%;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-small);
+}
+
+.outcomes-title {
+  margin-bottom: 2rem !important;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: 600;
+}
+
+.outcomes-stats {
+  padding: 1rem 0;
+}
+
+.testimonial-header {
+  margin-bottom: 1.5rem;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+}
+
+.client-avatar {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.client-details h4 {
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-content {
+  position: relative;
+  padding: 1.5rem 0;
+  font-style: italic;
+}
+
+.quote-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 3rem;
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quote-end {
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: -10px;
+}
+
+.testimonial-results {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.testimonial-results h5 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.result-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.result-icon {
+  color: var(--primary-color);
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.testimonial-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* 底部CTA部分 */
+.scenario-cta {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #134e9e, #1e65c4);
+  color: white;
+  margin-bottom: 0;
+}
+
+.scenario-cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.scenario-cta-content h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.scenario-cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* 相关内容导航 */
+.scenario-related {
+  padding: 3rem 1rem;
+  background-color: white;
+}
+
+.scenario-related-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scenario-related-content h4 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.related-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.related-links .ant-btn-link {
+  font-size: 1.1rem;
+}
+
+/* 加载状态 */
+.scenario-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.scenario-not-found {
+  text-align: center;
+  padding: 5rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .scenario-hero {
+    padding: 3rem 1rem;
+  }
+  
+  .scenario-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .scenario-subtitle h3 {
+    font-size: 1.3rem;
+  }
+  
+  .challenges-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .flow-steps {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .flow-step {
+    width: 100%;
+  }
+  
+  .step-arrow {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+  
+  .outcomes-title {
+    font-size: 1.5rem;
+  }
+  
+  .scenario-section {
+    padding: 3rem 1rem;
+  }
+  
+  .related-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .scenario-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .scenario-subtitle h3 {
+    font-size: 1.1rem;
+  }
+  
+  .image-placeholder {
+    height: 250px;
+  }
+  
+  .timeline-content {
+    padding: 1rem;
+  }
+  
+  .timeline-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .scenario-section {
+    padding: 2.5rem 1rem;
+  }
+} 

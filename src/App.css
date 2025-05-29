@@ -1,0 +1,91 @@
+/* 应用全局样式 */
+:root {
+  /* 颜色变量 */
+  --primary-color: #1677ff;
+  --primary-color-hover: #0958d9;
+  --secondary-color: #06b6d4;
+  --background-light: #f7f9fb;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --border-color: #e0e0e0;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #f5222d;
+  --shadow-small: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-medium: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-large: 0 8px 24px rgba(0,0,0,0.15);
+  
+  /* 字体变量 */
+  --font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+  
+  /* 基本样式重置 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  padding: 0;
+  color: var(--text-primary);
+  background-color: var(--background-light);
+}
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+  font-family: var(--font-family);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* 详情页通用样式 */
+.back-button {
+  padding: 0;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.back-button:hover {
+  color: var(--primary-color-hover);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-header h2 {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.section-header-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+/* 响应式适配基础样式 */
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+} 

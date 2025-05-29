@@ -1,0 +1,613 @@
+/* 核心能力详情页基础样式 */
+.feature-page {
+  min-height: 100vh;
+  background-color: var(--background-light);
+  font-family: var(--font-family);
+}
+
+/* 页头样式 */
+.feature-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-small);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.feature-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  padding: 0;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.back-button:hover {
+  color: var(--primary-color-hover);
+}
+
+/* 英雄区样式 */
+.feature-hero {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(135deg, #1c3291, #1f1c50);
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.feature-hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px, 40px 40px;
+  background-position: 0 0, 10px 10px;
+  animation: particles-float 60s linear infinite;
+}
+
+@keyframes particles-float {
+  0% {
+    background-position: 0 0, 10px 10px;
+  }
+  100% {
+    background-position: 100px 100px, 110px 110px;
+  }
+}
+
+.feature-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.feature-hero-content {
+  max-width: 1000px;
+  color: white;
+  z-index: 2;
+}
+
+.feature-hero-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.feature-hero-content h1 {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.feature-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.feature-tags {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature-tags .ant-tag {
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+}
+
+/* 区块通用样式 */
+.feature-section {
+  padding: 5rem 1rem;
+}
+
+.feature-section:nth-child(odd) {
+  background-color: white;
+}
+
+.feature-section:nth-child(even) {
+  background-color: var(--background-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-header h2 {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.section-header-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+/* 技术特性列表 */
+.feature-tech-list {
+  padding: 0 1rem;
+}
+
+.feature-tech-list h4 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.tech-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(22, 119, 255, 0.1);
+  border-radius: 8px;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+/* 架构图样式 */
+.feature-arch-diagram {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-medium);
+}
+
+.arch-diagram-container {
+  position: relative;
+}
+
+.arch-title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.arch-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.arch-layer {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.layer-title {
+  background-color: #f0f5ff;
+  padding: 1rem;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--primary-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.layer-modules {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.layer-module {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
+}
+
+.layer-module.primary {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* 功能矩阵折叠面板 */
+.feature-collapse {
+  background-color: transparent;
+  border: none;
+}
+
+.feature-collapse .ant-collapse-item {
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-small);
+}
+
+.feature-collapse .ant-collapse-header {
+  background-color: #f0f5ff;
+  padding: 1rem 1.5rem !important;
+}
+
+.feature-collapse .ant-collapse-content {
+  border-top: none;
+}
+
+.collapse-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collapse-icon {
+  font-size: 1.5rem;
+}
+
+.collapse-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.collapse-content {
+  padding: 1rem 0;
+}
+
+.module-features {
+  margin-top: 1.5rem;
+}
+
+.module-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  background-color: #f5f5f5;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.module-feature:hover {
+  background-color: #e6f4ff;
+  transform: translateY(-2px);
+}
+
+.feature-check {
+  color: var(--primary-color);
+}
+
+.module-image {
+  margin-top: 2rem;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.module-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.image-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.image-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* 应用价值与赋能场景 */
+.value-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-small);
+}
+
+.value-card .ant-card-head {
+  border-bottom: 2px solid #f0f5ff;
+}
+
+.value-card .ant-card-head-title {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.value-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  background-color: #f0f5ff;
+  border-radius: 50%;
+}
+
+.value-icon-inner {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.value-content {
+  flex: 1;
+}
+
+.enabled-scenarios {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scenario-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.scenario-item:hover {
+  background-color: #e6f4ff;
+  transform: translateY(-2px);
+}
+
+.scenario-icon {
+  color: var(--primary-color);
+}
+
+/* 客户成功案例 */
+.case-study-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-small);
+  transition: all 0.3s ease;
+}
+
+.case-study-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.case-company h4 {
+  margin-bottom: 0.5rem;
+}
+
+.case-section {
+  margin-bottom: 1.5rem;
+}
+
+.case-section:last-child {
+  margin-bottom: 0;
+}
+
+.case-section-icon {
+  margin-right: 8px;
+}
+
+.case-section h5 {
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+.case-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.case-result {
+  display: flex;
+  align-items: flex-start;
+}
+
+.result-icon {
+  color: var(--primary-color);
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+/* 底部CTA部分 */
+.feature-cta {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #1c3291, #1f1c50);
+  color: white;
+  margin-bottom: 0;
+}
+
+.feature-cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-cta-content h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.feature-cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* 相关内容导航 */
+.feature-related {
+  padding: 3rem 1rem;
+  background-color: white;
+}
+
+.feature-related-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.feature-related-content h4 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.related-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.related-links .ant-btn-link {
+  font-size: 1.1rem;
+}
+
+/* 加载状态 */
+.feature-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.feature-not-found {
+  text-align: center;
+  padding: 5rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .feature-hero {
+    height: 450px;
+  }
+  
+  .feature-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .feature-subtitle {
+    font-size: 1.3rem !important;
+  }
+  
+  .feature-section {
+    padding: 3rem 1rem;
+  }
+  
+  .arch-layer {
+    flex-direction: column;
+  }
+  
+  .layer-title {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .related-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-hero {
+    height: 400px;
+  }
+  
+  .feature-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .feature-subtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .feature-tags .ant-tag {
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .feature-section {
+    padding: 2.5rem 1rem;
+  }
+  
+  .feature-tech-list,
+  .feature-arch-diagram {
+    margin-bottom: 2rem;
+  }
+} 

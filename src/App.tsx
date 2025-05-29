@@ -1,15 +1,9 @@
-import React, { Suspense } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './router';
-import { AuthProvider } from './contexts/AuthContext';
-import { Spin } from 'antd';
+import React from 'react';
+import AppRouter from './router';
+import './App.css';
 
 const App: React.FC = () => {
-  return (
-    <Suspense fallback={<div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><Spin size="large" /></div>}>
-      <RouterProvider router={router} />
-    </Suspense>
-  );
+  return <AppRouter />;
 };
 
 export default App;

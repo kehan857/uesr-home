@@ -1,0 +1,437 @@
+/* 详情页基础样式 */
+.detail-page {
+  min-height: 100vh;
+  background-color: var(--background-light, #f7f9fb);
+  font-family: var(--font-family, 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+}
+
+/* 页头样式 */
+.detail-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.detail-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  padding: 0;
+  color: #1677ff;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  color: #0958d9;
+}
+
+/* 内容容器 */
+.detail-container {
+  width: 100%;
+}
+
+/* 英雄区样式 */
+.detail-hero-banner {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  background: linear-gradient(135deg, #1677ff, #06b6d4);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.detail-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.detail-hero-content {
+  max-width: 1000px;
+  color: white;
+  z-index: 1;
+}
+
+.detail-hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.detail-hero-content h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.detail-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.detail-tags {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.detail-tags .ant-tag {
+  font-size: 0.9rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+}
+
+/* 详情区块通用样式 */
+.detail-section {
+  padding: 4rem 1rem;
+}
+
+.detail-section:nth-child(odd) {
+  background-color: white;
+}
+
+.detail-section:nth-child(even) {
+  background-color: var(--background-light, #f7f9fb);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-header h2 {
+  color: #1677ff;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.section-header-line {
+  width: 60px;
+  height: 3px;
+  background-color: #1677ff;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+/* 描述部分 */
+.detail-description-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.detail-card {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 12px;
+}
+
+.detail-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;
+}
+
+/* 核心优势卡片 */
+.benefit-card {
+  height: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(22,119,255,0.12);
+}
+
+.benefit-card-icon {
+  font-size: 2rem;
+  color: #1677ff;
+  margin-bottom: 1rem;
+}
+
+.benefit-card-content {
+  color: #333;
+  font-size: 1rem;
+}
+
+/* 功能板块 */
+.detail-function-block {
+  margin-bottom: 3rem;
+}
+
+.detail-function-block:last-child {
+  margin-bottom: 0;
+}
+
+.function-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.function-card:hover {
+  box-shadow: 0 8px 24px rgba(22,119,255,0.12);
+}
+
+.function-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.function-content {
+  padding: 2rem;
+  position: relative;
+}
+
+.function-index {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(22,119,255,0.1);
+}
+
+.function-card.reverse .function-row {
+  flex-direction: row-reverse;
+}
+
+.function-card h3 {
+  color: #1677ff;
+  margin-bottom: 1rem;
+}
+
+.function-points {
+  margin-top: 1.5rem;
+}
+
+.function-point {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.point-icon {
+  color: #1677ff;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.function-image-col {
+  padding: 0;
+}
+
+.function-image {
+  height: 100%;
+  min-height: 300px;
+  position: relative;
+}
+
+.function-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1677ff, #06b6d4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.image-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.image-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* 客户案例 */
+.case-study-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.case-study-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(22,119,255,0.12);
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.case-company h4 {
+  margin-bottom: 0.5rem;
+}
+
+.case-section {
+  margin-bottom: 1.5rem;
+}
+
+.case-section:last-child {
+  margin-bottom: 0;
+}
+
+.case-section-icon {
+  margin-right: 8px;
+}
+
+.case-section h5 {
+  margin-bottom: 0.75rem;
+  color: #1677ff;
+}
+
+.case-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.case-result {
+  display: flex;
+  align-items: flex-start;
+}
+
+.result-icon {
+  color: #1677ff;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+/* CTA部分 */
+.detail-cta-section {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #1677ff, #06b6d4);
+  color: white;
+  margin-bottom: 0;
+}
+
+.detail-cta {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-cta h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.detail-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* 加载状态 */
+.detail-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.detail-not-found {
+  text-align: center;
+  padding: 5rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .detail-hero-banner {
+    height: 350px;
+  }
+  
+  .detail-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .detail-subtitle {
+    font-size: 1.2rem !important;
+  }
+  
+  .function-content {
+    padding: 1.5rem;
+  }
+  
+  .function-image {
+    min-height: 200px;
+  }
+  
+  .detail-section {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .detail-hero-banner {
+    height: 300px;
+  }
+  
+  .detail-hero-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .detail-subtitle {
+    font-size: 1rem !important;
+  }
+  
+  .detail-tags .ant-tag {
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .benefit-card {
+    margin-bottom: 1rem;
+  }
+  
+  .detail-section {
+    padding: 2rem 1rem;
+  }
+} 
